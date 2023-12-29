@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/variable.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/hamburgerBtn.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        피로그래밍
+        <a href=""><img src="./images/logo.svg" alt="logo" /></a>
+      </h1>
+      <ul class="desktop-menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Portfolio</a></li>
+        <li><a href="">Interview</a></li>
+        <li><a href="">Gallery</a></li>
+        <li><a href="">Recruit</a></li>
+      </ul>
+      <label id="hamburger-icon">
+        <input type="checkbox" />
+        <div></div>
+        <div></div>
+        <div></div>
+        <aside class="sidebar" id="sidebar">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Portfolio</a></li>
+            <li><a href="">Interview</a></li>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">Recruit</a></li>
+          </ul>
+        </aside>
+      </label>
+    </header>
+    <style>
+            #main-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 40px;
+                margin-bottom: 16px;
+            }
+    
+            #main-header-string2 {
+                position: absolute;
+                right: 0;
+            }
+            .main-box {
+                padding: 16px;
+                gap: 16px;
+                background-color: #333333;
+                border-radius: 8px;
+                height: 142px;
+                margin-bottom: 16px;
+                position: relative;
+            }
+            .main-box:hover {
+                top: -2px;
+            }
+            .box-img {
+                background-image: url(./images/6199398.jpg) ;
+                background-size: cover;
+                width: 150px;
+                height: 110px;
+                justify-content: center; 
+                align-items: center;
+                position: absolute;
+                left: 0;
+                border-radius: 8px;
+                margin-left: 5px;
+                transition: transform 0.3s ease-in-out;
+            }
+    
+            .main-box:hover .box-img {
+                transform: scale(1.1);
+            }
+    
+            .box-name {
+                margin-left: 160px;
+                height: 22px;
+                font-size: 100%;
+                margin-bottom: 5px;
+            }
+            .box-content {
+                margin-left: 160px;
+                height: 20px;
+                font-size: 100%;
+                margin-bottom: 5px;
+            }
+            .box-authors {
+                margin-left: 160px;
+                height: 26px;
+                padding: 15px 0px 0px;
+                font-size: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 5px;
+                position:absolute;
+                bottom: 0;
+                margin-bottom: 20px;
+            }
+            .box-authors > div {
+                border-radius: 5px; 
+                background-color: gray;
+                padding: 6px 8px;
+            }
+            .main-hamburger {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display:inline-block;
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+            .main-hamburger > div {
+                height: 3px;
+                margin: 8px 0;
+                background-color: white;
+                width:100%;
+            }
+            .main-box:hover .main-hamburger >div:nth-of-type(1) {
+                width:50%;
+                transition: 0.3s;
+            }
+            .main-box:hover .main-hamburger >div:nth-of-type(3) {
+                width:50%;
+                transition: 0.3s;
+                margin-left: 19px;
+            }
+            @media screen and (max-width:700px) {
+                .main-box {
+                    height: 315px;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .box-img {
+                    width: 250px;
+                    height: 135px;
+                    position:relative;
+                }
+                .box-name {
+                    margin-left: 0px;
+                    margin-bottom: 0px;
+                }
+                .box-content {
+                    margin-left: 0px;
+                    margin-bottom: 0px;
+                }
+                .box-authors {
+                    margin-left: 0px;
+                    margin-bottom: 20px;
+                }
+            }
+    </style>
+    <div id="main">
+        <div id="main-header">
+            <div id="main-header-string1">19기</div>
+            <div id="main-header-string2">18기</div>
+        </div>
+        <div class="main-box">
+            <div class="box-img"></div>
+            <div class="box-name">Daily VS</div>
+            <div class="box-content">매일 매일 투표와 통계로 느끼는 즐거움</div>
+            <div class="box-authors">
+                <div>김정곤</div>
+                <div>곽민경</div>
+                <div>송우진</div>
+                <div>왕한솔</div>
+                <div>조성민</div>
+            </div>
+            <div class="main-hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box-img"></div>
+            <div class="box-name">마이패스</div>
+            <div class="box-content">나만의 경험공유 플랫폼. 마이패스입니다.</div>
+            <div class="box-authors">
+                <div>장준석</div>
+                <div>김도은</div>
+                <div>백서경</div>
+                <div>이정한</div>
+                <div>채리원</div>
+            </div>
+            <div class="main-hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box-img"></div>
+            <div class="box-name">TAXI_ROKA</div>
+            <div class="box-content">군인들을 위한 택시 동승 인원 매칭서비스</div>
+            <div class="box-authors">
+                <div>노영진</div>
+                <div>김현수</div>
+                <div>백승민</div>
+                <div>오경린</div>
+                <div>이현지</div>
+            </div>
+            <div class="main-hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box-img"></div>
+            <div class="box-name">TaskStock</div>
+            <div class="box-content">주식과 Todo 서비스를 결합한 웹 플랫폼</div>
+            <div class="box-authors">
+                <div>민세원</div>
+                <div>김선우</div>
+                <div>안정근</div>
+                <div>오지수</div>
+                <div>정환희</div>
+            </div>
+            <div class="main-hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box-img"></div>
+            <div class="box-name">PIROT</div>
+            <div class="box-content">깔 -끔한 업무용 채팅 웹 서비스, 피롯입니다.</div>
+            <div class="box-authors">
+                <div>양원채</div>
+                <div>김선우</div>
+                <div>박석류</div>
+                <div>장민서</div>
+                <div>정혜인</div>
+            </div>
+            <div class="main-hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/variable.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/hamburgerBtn.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        피로그래밍
+        <a href=""><img src="./images/logo.svg" alt="logo" /></a>
+      </h1>
+      <ul class="desktop-menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Portfolio</a></li>
+        <li><a href="">Interview</a></li>
+        <li><a href="">Gallery</a></li>
+        <li><a href="">Recruit</a></li>
+      </ul>
+      <label id="hamburger-icon">
+        <input type="checkbox" />
+        <div></div>
+        <div></div>
+        <div></div>
+        <aside class="sidebar" id="sidebar">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Portfolio</a></li>
+            <li><a href="">Interview</a></li>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">Recruit</a></li>
+          </ul>
+        </aside>
+      </label>
+    </header>
+    <style>
+        #main-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 40px;
+            margin-bottom: 16px;
+        }
+        #main-header-string2 {
+            position: absolute;
+            right: 0;
+        }
+        #container { 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: var(--gutter);
+            margin-bottom: var(--offset);
+            position:relative;
+        }
+        .container-box {
+            height:140px;
+            background-color: gray;
+            border-radius: 10px; 
+            position: relative;   
+        }
+        .container-box:hover {
+            top: -2px;
+        }
+        .container-box-header {
+            gap:16px;
+            height: 70px;
+            background-color: gray;
+            position: relative;
+            margin:10px;
+        }
+
+        .container-box-headerimg {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; 
+            background-image: url(./images/6199398.jpg) ;
+            background-size: cover;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            
+            transition: transform 0.3s ease-in-out;
+        }
+        .container-box:hover .container-box-headerimg {
+            transform: scale(1.1);
+        }
+        .container-box-name {
+            position: absolute;
+            top: 10px;
+            margin-left: 100px;
+            font-size: 100%;
+            color: white;
+        }
+        .container-box-major {
+            position: absolute;
+            top: 30px;
+            margin-left: 100px;
+            font-size: 100%;
+            color: white;
+            border-radius: 5px; 
+            background-color: red;
+            padding: 6px 8px;
+        }
+        .container-box-content {
+            margin:10px;
+            position:absolute;
+            justify-content: flex-start;
+            bottom: 0;
+            font-size: 18px;
+            color: white;
+            bottom : 5;
+        }
+        .container-box-hamburger {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display:inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        .container-box-hamburger > div {
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            width:100%;
+        }
+        .container-box:hover .container-box-hamburger >div:nth-of-type(1) {
+            width:50%;
+            transition: 0.3s;
+        }
+        .container-box:hover .container-box-hamburger >div:nth-of-type(3) {
+            width:50%;
+            transition: 0.3s;
+            margin-left: 15px;
+        }
+        @media screen and (max-width:700px) {
+            #container { 
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: var(--gutter);
+                margin-bottom: var(--offset);
+                position:relative;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            #container { 
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: var(--gutter);
+                margin-bottom: var(--offset);
+                position:relative;
+            }
+        }
+    </style>
+    <div id="main">
+        <div id="main-header">
+            <div id="main-header-string1">19기</div>
+            <div id="main-header-string2">18기</div>
+        </div>
+        <div id="container">
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+            <div class="container-box">
+                <div class="container-box-header">
+                    <div class="container-box-headerimg"></div>
+                    <div class="container-box-name">곽민경</div>
+                    <div class="container-box-major">비전공자</div>
+                </div>
+                <div class="container-box-hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-box-content">수고했다 더 수고해보자</div>
+            </div> 
+        </div>
+    </div>
+  </body>
+</html>
