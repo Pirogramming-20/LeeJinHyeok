@@ -1,3 +1,5 @@
+import sys
+
 num = 0
 
 def inputNum():
@@ -19,6 +21,9 @@ while (True):
         for i in range(count):
             num = num+1
             print ("Player A :", num)
+            if (num == 31):
+                
+                sys.exit()
         status = 1
 
     else :
@@ -26,5 +31,8 @@ while (True):
         for i in range(count):
             num = num+1
             print ("Player B :", num)
+            if (num == 31):
+                
+                sys.exit()
         status = 0
 
