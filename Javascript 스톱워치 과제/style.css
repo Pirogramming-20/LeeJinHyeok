@@ -1,0 +1,99 @@
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+    display: flex;
+}
+#title > svg {
+    width: 24px;
+    height: 24px;
+}
+#container {
+    background-color: rgba(101, 243, 248, 0.466);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stopwatch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: khaki;
+    border: none;
+    border-radius: 30px;
+    padding: 20px;
+    width: 300px;
+}
+#time {
+    margin-bottom: 20px;
+    background-color: white;
+    width: 80%;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#recordbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    border-radius:30px ;
+    width: 300px;
+}
+#listbox {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+}
+
+#listbox > li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#recordbox > div {
+    background-color: khaki;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#recordbox >div > svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#buttonbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+#buttonbox > button {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
