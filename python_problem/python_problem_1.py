@@ -1,4 +1,5 @@
 import sys
+import random
 
 num = 0
 status = 0
@@ -16,12 +17,12 @@ def brGame():
 
 while (True):
     if status == 0:
-        count = brGame()
+        count = random.randint(1,3)
         for i in range(count):
             num = num+1
-            print ("Player A :", num)
+            print ("Computer :", num)
             if (num == 31):
-                print ("Player B Win!")
+                print ("Player Win!")
                 sys.exit()
         status = 1
 
@@ -29,8 +30,8 @@ while (True):
         count = brGame()
         for i in range(count):
             num = num+1
-            print ("Player B :", num)
+            print ("Player :", num)
             if (num == 31):
-                print ("Player A Win!")
+                print ("Computer Win!")
                 sys.exit()
         status = 0
