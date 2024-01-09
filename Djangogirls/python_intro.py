@@ -43,6 +43,9 @@
 #     print('Hi there!')
 #     print('How are you?')
 
+# hi()
+
+
 # def hi(name):
 #     if name == 'Ola':
 #         print('Hi Ola!')
@@ -52,7 +55,7 @@
 #         print('Hi anonymous!')
 
 # hi("Sonja")
-# hi()
+
 
 # def hi(name):
 #     print('Hi ' + name + '!')
