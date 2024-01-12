@@ -1,0 +1,8 @@
+<h3><a href="/reviews"> My Movie Review </a></h3>
+<h3><a href="/reviews/create"> 리뷰 작성하기 </a></h3>
+{% for review in reviews %}
+    <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
+    <p>개봉년도: {{review.year}} </p>
+    <p>장르: {{review.genre}} </p>
+    <p>별점: {{review.score}} </p>
+{% endfor %}
