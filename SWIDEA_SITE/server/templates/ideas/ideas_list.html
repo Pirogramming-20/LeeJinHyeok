@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <title>ideas_list</title>
+{% endblock %}
+
+{% block content %}
+
+  <form method="get" action="">
+    <label for="sort">정렬 기준:</label>
+    <select id="sort" name="sort">
+      <option value="default" {% if sort_option == 'default' %}selected{% endif %}>기본</option>
+      <option value="starred" {% if sort_option == 'starred' %}selected{% endif %}>찜하기순</option>
+      <option value="name" {% if sort_option == 'name' %}selected{% endif %}>이름순</option>
+      <option value="registration" {% if sort_option == 'registration' %}selected{% endif %}>등록순</option>
+      <option value="latest" {% if sort_option == 'latest' %}selected{% endif %}>최신순</option>
+    </select>
+    <button type="submit">적용</button>
+  </form>
+
+  <h1>Idea List</h1>
+  <p> 아이디어 목록 페이지입니다.</p>  
+  <div class="content-wrapper">
+    <!-- 글 목록 -->
+    {% for idea in ideas %}
+      <div class="item">
+        {% if idea.photo.url != null and idea.photo.url != '' %}
+          <img src="{{ idea.photo.url }}" alt="" style="width: 360px; height: 250px; object-fit: cover;">
+        {% else %}
+          <img src="{% static 'ideas/image/no_img.png' %}" alt="대체텍스트">
+        {% endif %}
+        <div class="info">
+          <a href="{% url 'ideas:detail' idea.pk %}" class="title">
+            {{ idea.title }}
+          </a>
+          <p class="create-date"> 관심도: <span id="interest-{{ idea.pk }}">{{ idea.interest }}</span></p>
+          <p>
+            <a href="{% url 'ideas:toggleStar' idea.pk %}"> 
+              {% if idea.is_starred == False %} 
+                <p>찜하기 </p>
+              {% else %}
+                <p>찜 해제하기 </p>
+              {%endif%}
+            </a>
+          </p>
+        </div> 
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

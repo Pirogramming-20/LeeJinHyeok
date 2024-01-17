@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%block head%}
+  <title>ideas_update</title>
+{% endblock %}
+{%block content%}
+<h1>Idea Update</h1>
+<p> 아이디어 업데이트 페이지입니다. </p>   
+<form
+    action="{% url 'ideas:update' pk %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-success">수정 완료</button> 
+  </form>
+{%endblock%}

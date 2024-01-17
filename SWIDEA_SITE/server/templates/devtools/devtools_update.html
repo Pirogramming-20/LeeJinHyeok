@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%block head%}
+  <title>devtools_update</title>
+{% endblock %}
+{%block content%}
+<h1>DevTool Update</h1>
+  <p> 개발툴 업데이트 페이지입니다. </p>    
+<form
+    action="{% url 'devtools:update' pk %}"
+    method="post"
+  >
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-success">수정 완료</button> 
+  </form>
+{%endblock%}

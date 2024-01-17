@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%block head%}
+  <title>ideas_create</title>
+{% endblock %}
+{%block content%}
+<h1>Idea Create</h1>
+<p> 아이디어 생성 페이지입니다.</p>    
+<form
+    action="{% url 'ideas:create' %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-success">등록하기</button> 
+  </form>
+{%endblock%}
