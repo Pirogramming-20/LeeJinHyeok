@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Main</title>
+</head>
+<body>
+    <a href="{% url 'post:create' %}">글 등록하기</a>
+    <div class="main__container">
+        {% for post in posts %}
+            <div class="card post__container post-id-{{ post.id }}">
+                <div class="card-body">
+                    <a href="{% url 'post:detail' post.id %}" class="card-title"><h1>{{ post.title }}</h1></a>
+                    <div class="card-text"><h3>{{ post.content }}</h3></div>
+
+                    <div class="btn btn-primary post__like" onclick="onClickLike({{ post.id }})" style="cursor: pointer;">
+                        {% if post.isLiked %}
+                            좋아요 {{ post.like }} | 내가 좋아요 한 게시물, 좋아요 해제하려면 클릭
+                        {% else %}
+                            좋아요 {{ post.like }} | 내가 좋아요 하지 않은 게시물, 좋아요 하려면 클릭
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <textarea id="commentInput-{{ post.id }}" placeholder="댓글을 입력하세요"></textarea>
+            <button onclick="onSubmitComment({{ post.id }})">댓글 등록</button>
+
+            <div id="commentList-{{ post.id }}"></div>
+        {% endfor %}
+    </div>
+
+    <script>
+        const requestLike = new XMLHttpRequest();
+        const requestComment = new XMLHttpRequest();
+
+        const onClickLike = (id) => {
+            const url = "like/";
+            requestLike.open("POST", url, true);
+            requestLike.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestLike.onreadystatechange = () => {
+                if (requestLike.readyState === XMLHttpRequest.DONE) {
+                    if (requestLike.status < 400) {
+                        const { id: postId, isLiked, likeCount } = JSON.parse(requestLike.response);
+                        const element = document.querySelector(`.post-id-${postId} .post__like`);
+                        
+                        if (isLiked) {
+                            element.innerHTML = `좋아요 ${likeCount} | 내가 좋아요 한 게시물, 좋아요 해제하려면 클릭`;
+                        } else {
+                            element.innerHTML = `좋아요 ${likeCount} | 내가 좋아요 하지 않은 게시물, 좋아요 하려면 클릭`;
+                        }
+                        
+                    }
+                }
+            };
+            requestLike.send(JSON.stringify({ id: id }));
+        }
+
+        const onSubmitComment = (id) => {
+            const url = "comment/";
+            const commentInput = document.getElementById(`commentInput-${id}`).value;
+            requestComment.open("POST", url, true);
+            requestComment.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestComment.onreadystatechange = () => {
+                if (requestComment.readyState === XMLHttpRequest.DONE) {
+                    if (requestComment.status < 400) {
+                        console.log("댓글이 등록되었습니다.");
+                        getComments(id);
+                    } else {
+                        console.error("댓글 등록에 실패했습니다.");
+                    }
+                }
+            };
+            requestComment.send(JSON.stringify({id:id, comment: commentInput}))
+        }
+
+        const getComments = (postId) => {
+            const commentListContainer = document.getElementById(`commentList-${postId}`);
+            const url = `get_comments/${postId}/`;
+        
+            const requestComments = new XMLHttpRequest();
+            requestComments.open("GET", url, true);
+            requestComments.onreadystatechange = () => {
+                if (requestComments.readyState === XMLHttpRequest.DONE) {
+                    if (requestComments.status < 400) {
+                        const comments = JSON.parse(requestComments.response);
+                        commentListContainer.innerHTML = comments.map(comment => `
+                            <p>${comment.content} 
+                                <button onclick="onDeleteComment(${postId}, ${comment.id})">삭제</button>
+                            </p>`).join('');
+                    }
+                }
+            };
+            requestComments.send();
+        };
+        const onDeleteComment = (postId, commentId) => {
+            const url = `delete_comment/${postId}/${commentId}/`;
+
+            const requestDeleteComment = new XMLHttpRequest();
+            requestDeleteComment.open("POST", url, true);
+            requestDeleteComment.onreadystatechange = () => {
+                if (requestDeleteComment.readyState === XMLHttpRequest.DONE) {
+                    if (requestDeleteComment.status < 400) {
+                        console.log("댓글이 삭제되었습니다.");
+                        getComments(postId);
+                    } else {
+                        console.error("댓글 삭제에 실패했습니다.");
+                    }
+                }
+            };
+            requestDeleteComment.send();
+        };
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            {% for post in posts %}
+                getComments({{ post.id }});
+            {% endfor %}
+        });
+    </script>
+</body>
+</html>
